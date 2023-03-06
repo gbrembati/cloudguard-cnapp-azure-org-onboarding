@@ -39,7 +39,7 @@ resource "azuread_service_principal" "cloudguard-app-sp" {
 }
 
 resource "azuread_service_principal_delegated_permission_grant" "cloudguard-app-admingrant" {
-  claim_values = ["Directory.Read.All", "Reports.Read.All"]
+  claim_values = ["Directory.Read.All", "Reports.Read.All", "Policy.Read.All", "AccessReview.Read.All"]
   resource_service_principal_object_id = data.azuread_service_principal.msgraph.object_id
   service_principal_object_id          = azuread_service_principal.cloudguard-app-sp.object_id
 }
