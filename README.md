@@ -14,6 +14,8 @@ Then you will need to get the API credentials that you will be using with Terraf
 Remember to copy these two values, you will need to enter them in the *.tfvars* file later on.
 
 ## Prerequisite
+Before you proceed, if you would like creating Azure configuration manually and only configure CloudGuard CNAP Platform with terraform, please check the simplified version of this onboarding at [gbrembati / cloudguard-cnapp-azure-org-onboarding-simple](https://github.com/gbrembati/cloudguard-cnapp-azure-org-onboarding-simple).    
+
 You would need to have proper permission and authentication in Azure. This can be achieved either by specifying the authentication parameters using your service-principal authentication (as described below) or using other means of authenticating as described in [AzureRM Terraform Provider Docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
 
 ## How to use it
