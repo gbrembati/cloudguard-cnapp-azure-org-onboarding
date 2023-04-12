@@ -9,7 +9,7 @@ You would need to have a CloudGuard tenant, you can create one via *Infinity Por
 ## Get API credentials in your CloudGuard CNAPP Portal
 Then you will need to get the API credentials that you will be using with Terraform to onboard the accounts.
 
-![Architectural Design](/zimages/create-cpsm-serviceaccount.jpg)
+![Architectural Design](/zimages/create-cnapp-serviceaccount.jpg)
 
 Remember to copy these two values, you will need to enter them in the *.tfvars* file later on.
 
