@@ -75,14 +75,14 @@ resource "azurerm_role_assignment" "cloudguard-app-custom-role-assign" {
 }
 
 resource "dome9_cloudaccount_azure" "connect-azure-subscription" {
-  count = length(data.azurerm_subscriptions.available.subscriptions)
+  for_each = {for subscription in toset(data.azurerm_subscriptions.available.subscriptions) : subscription.display_name => subscription }
 
   operation_mode         = "Read"
   tenant_id              = var.azure-tenant
   client_id              = azuread_application.cloudguard-app.application_id
   client_password        = azuread_application_password.cloudguard-app-key.value
-  name                   = data.azurerm_subscriptions.available.subscriptions[count.index].display_name
-  subscription_id        = data.azurerm_subscriptions.available.subscriptions[count.index].subscription_id
+  name                   = each.value.display_name
+  subscription_id        = each.value.subscription_id
 
   depends_on = [azurerm_role_assignment.cloudguard-app-custom-role-assign, azurerm_role_assignment.cloudguard-app-reader-role-assign]
 }
