@@ -17,6 +17,7 @@ terraform {
 
 provider "azurerm" {
   features { }
+  skip_provider_registration = true
   client_id         = var.azure-client-id
   client_secret     = var.azure-client-secret
   subscription_id   = var.azure-subscription
