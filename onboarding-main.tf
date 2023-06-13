@@ -75,7 +75,7 @@ resource "azurerm_role_assignment" "cloudguard-app-custom-role-assign" {
 }
 
 resource "dome9_cloudaccount_azure" "connect-azure-subscription" {
-  for_each = {for subscription in toset(data.azurerm_subscriptions.available.subscriptions) : subscription.display_name => subscription }
+  for_each = {for subscription in toset(data.azurerm_subscriptions.available.subscriptions) : subscription.subscription_id => subscription }
 
   operation_mode         = "Read"
   tenant_id              = var.azure-tenant
